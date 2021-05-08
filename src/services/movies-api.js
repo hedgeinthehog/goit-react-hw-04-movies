@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://www.themoviedb.org/3';
+axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 const API_KEY = 'a3368b25f03d671fc46c253c64d35f5e';
 
 const moviesApi = {
   fetchPopular() {
-    return axios.get(`/trending?api_key=${API_KEY}`);
+    return axios.get(`/trending/movie/week?api_key=${API_KEY}`);
   },
 
   fetchByQuery(query) {
