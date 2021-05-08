@@ -2,10 +2,11 @@ import Homepage from '../views/HomeView';
 import MoviesView from '../views/MoviesView';
 import MovieDetailsView from '../views/MovieDetailsView';
 
-const paths = {
+export const paths = {
   home: '/',
   movies: '/movies',
   movieDetails: '/movies/:movieId',
+  movieDetails: id => `/movies/${id}`,
 };
 
 const routes = [
@@ -15,7 +16,7 @@ const routes = [
     exact: true,
   },
   {
-    path: paths.movieDetails,
+    path: paths.movieDetails(':movieId'),
     component: MovieDetailsView,
   },
   {
