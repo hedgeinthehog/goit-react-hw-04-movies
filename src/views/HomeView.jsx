@@ -20,7 +20,12 @@ class HomeView extends React.Component {
 
   render() {
     const { movies } = this.state;
-    return <div>{movies && <MoviesList movies={movies} />}</div>;
+    return (
+      <div>
+        <h1>Trending this week</h1>
+        {movies && <MoviesList movies={movies} />}
+      </div>
+    );
   }
 }
 
