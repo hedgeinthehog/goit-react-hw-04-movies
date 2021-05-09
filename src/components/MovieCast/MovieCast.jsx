@@ -10,6 +10,7 @@ class MovieCast extends React.Component {
 
   async componentDidMount() {
     const { id } = this.props;
+
     try {
       const cast = await movieApi.fetchMovieCast(id);
 
@@ -26,13 +27,17 @@ class MovieCast extends React.Component {
       <div>
         {cast && (
           <ul>
-            {cast.map(({ profile_path, name, character }) => (
-              <li>
-                <img src={getImgPath(profile_path)} alt={name} />
-                <p>{name}</p>
-                <p>Character: {character}</p>
-              </li>
-            ))}
+            {cast.map(({ profile_path, name, character, id }) => {
+              return (
+                <li key={id}>
+                  {profile_path && (
+                    <img src={getImgPath(profile_path)} alt={name} />
+                  )}
+                  <p>{name}</p>
+                  <p>Character: {character}</p>
+                </li>
+              );
+            })}
           </ul>
         )}
       </div>
