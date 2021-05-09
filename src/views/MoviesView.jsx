@@ -9,6 +9,17 @@ class MoviesView extends React.Component {
     query: '',
   };
 
+  componentDidMount() {
+    const { location } = this.props;
+    const searchParams = new URLSearchParams(location.search);
+
+    const query = searchParams.has('query') ? searchParams.get('query') : null;
+
+    if (query) {
+      this.setState({ query });
+    }
+  }
+
   async componentDidUpdate(prevProps, prevState) {
     const { query } = this.state;
 
@@ -31,6 +42,19 @@ class MoviesView extends React.Component {
 
   handleQueryChange = query => {
     this.setState({ query });
+
+    if (!query) {
+      this.props.history.push({
+        pathname: this.props.location.pathname,
+      });
+      this.setState({ movies: null });
+      return;
+    }
+
+    this.props.history.push({
+      pathname: this.props.location.pathname,
+      search: `query=${query}`,
+    });
   };
 
   render() {
