@@ -23,7 +23,9 @@ const moviesApi = {
   },
 
   fetchMovieReviews(id) {
-    return axios.get(`/movie/${id}/reviews?api_key=${API_KEY}`);
+    return axios
+      .get(`/movie/${id}/reviews?api_key=${API_KEY}`)
+      .then(response => response.data.results);
   },
 };
 
