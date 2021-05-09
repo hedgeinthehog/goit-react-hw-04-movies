@@ -1,0 +1,27 @@
+.additionalInfoMenu {
+  padding: 20px 0;
+  margin: 10px 0;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.65);
+}
+
+.additionalInfoMenuTitle {
+  margin: 0 0 10px;
+}
+
+.link,
+.link:visited {
+  margin-left: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.link:hover,
+.link:focus {
+  color: #ac0404;
+}
+
+.backBtn {
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(128, 127, 127);
+}

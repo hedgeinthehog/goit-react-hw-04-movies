@@ -1,4 +1,5 @@
 import getImgPath from '../../helpers/getImgPath';
+import styles from './MovieDetails.module.css';
 
 const MovieDetails = ({ movie }) => {
   const {
@@ -17,18 +18,18 @@ const MovieDetails = ({ movie }) => {
   const score = vote_average * 10;
 
   return (
-    <div>
-      <div>
+    <div className={styles.detailsWrapper}>
+      <div className={styles.moviePoster}>
         <img src={posterPath} alt={title} />
       </div>
       <div>
-        <h3>
+        <h3 className={styles.title}>
           {title} ({releaseYear})
         </h3>
         <p>User score: {score}%</p>
-        <h2>Overview</h2>
+        <h2 className={styles.detailsItemName}>Overview</h2>
         <p>{overview}</p>
-        <h2>Genres</h2>
+        <h2 className={styles.detailsItemName}>Genres</h2>
         <p>{genreNames}</p>
       </div>
     </div>

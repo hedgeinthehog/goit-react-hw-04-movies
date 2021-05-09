@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Searchbar.module.css';
 
 class Searchbar extends React.Component {
   state = {
@@ -22,7 +23,7 @@ class Searchbar extends React.Component {
     const { query } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className={styles.form}>
         <input
           type="text"
           value={query}

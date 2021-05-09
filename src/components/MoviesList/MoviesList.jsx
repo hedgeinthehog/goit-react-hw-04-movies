@@ -1,10 +1,11 @@
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { paths } from '../../router/routes';
+import styles from './MoviesList.module.css';
 
 const MoviesList = ({ movies, location }) => {
   return (
-    <ul>
+    <ul className={styles.moviesList}>
       {movies.map(movie => (
         <li key={movie.id}>
           <Link
@@ -12,6 +13,7 @@ const MoviesList = ({ movies, location }) => {
               pathname: paths.movieDetails(movie.id),
               state: { from: location },
             }}
+            className={styles.link}
           >
             {movie.title}
           </Link>

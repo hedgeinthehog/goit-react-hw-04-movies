@@ -5,6 +5,7 @@ import MovieReviews from '../components/MovieReviews';
 import MovieCast from '../components/MovieCast';
 import movieApi from '../services/movies-api';
 import { paths } from '../router/routes';
+import styles from '../styles/MovieDetailsView.module.css';
 
 class MovieDetailsView extends React.Component {
   state = { movieId: '', movie: null };
@@ -44,7 +45,11 @@ class MovieDetailsView extends React.Component {
     const { movie, movieId } = this.state;
     return (
       <>
-        <button type="button" onClick={this.handleGoBack}>
+        <button
+          type="button"
+          onClick={this.handleGoBack}
+          className={styles.backBtn}
+        >
           &#129044; Go back
         </button>
         {movie && (
@@ -52,10 +57,22 @@ class MovieDetailsView extends React.Component {
             <div>
               <MovieDetails movie={movie} />
             </div>
-            <div>
-              <p>Additional information</p>
-              <Link to={`${paths.movieDetails(movieId)}/cast`}>Cast</Link>
-              <Link to={`${paths.movieDetails(movieId)}/reviews`}>Reviews</Link>
+            <div className={styles.additionalInfoMenu}>
+              <p className={styles.additionalInfoMenuTitle}>
+                Additional information
+              </p>
+              <Link
+                to={`${paths.movieDetails(movieId)}/cast`}
+                className={styles.link}
+              >
+                Cast
+              </Link>
+              <Link
+                to={`${paths.movieDetails(movieId)}/reviews`}
+                className={styles.link}
+              >
+                Reviews
+              </Link>
             </div>
 
             <Route

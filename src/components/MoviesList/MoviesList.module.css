@@ -1,0 +1,17 @@
+.moviesList {
+  line-height: 1.6;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link:hover,
+.link:focus {
+  color: #ac0404;
+}
+
+.link:visited {
+  color: #008000;
+}

@@ -1,0 +1,16 @@
+.detailsWrapper {
+  display: flex;
+}
+
+.moviePoster {
+  margin-right: 10px;
+}
+
+.title {
+  font-size: 24px;
+}
+
+.detailsItemName {
+  margin-top: 24px;
+  font-size: 16px;
+}
