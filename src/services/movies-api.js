@@ -12,12 +12,14 @@ const moviesApi = {
     return axios.get(`/search/movie?api_key=${API_KEY}&query=${query}`);
   },
 
-  fecthMovieById(id) {
+  fetchMovieById(id) {
     return axios.get(`/movie/${id}?api_key=${API_KEY}`);
   },
 
-  fetchMovieCredits(id) {
-    return axios.get(`/movie/${id}/credits?api_key=${API_KEY}`);
+  fetchMovieCast(id) {
+    return axios
+      .get(`/movie/${id}/credits?api_key=${API_KEY}`)
+      .then(response => response.data.cast);
   },
 
   fetchMovieReviews(id) {
