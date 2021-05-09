@@ -10,7 +10,7 @@ class MovieDetailsView extends React.Component {
   state = { movieId: '', movie: null };
 
   componentDidMount() {
-    const { match, location, history } = this.props;
+    const { match } = this.props;
     const { movieId } = match.params;
 
     this.setState({ movieId });
@@ -30,11 +30,23 @@ class MovieDetailsView extends React.Component {
     }
   }
 
+  handleGoBack = () => {
+    const { location, history } = this.props;
+
+    if (location.state && location.state.from) {
+      return history.push(location.state.from);
+    }
+
+    history.push(paths.movies);
+  };
+
   render() {
     const { movie, movieId } = this.state;
     return (
       <>
-        {' '}
+        <button type="button" onClick={this.handleGoBack}>
+          &#129044; Go back
+        </button>
         {movie && (
           <>
             <div>
