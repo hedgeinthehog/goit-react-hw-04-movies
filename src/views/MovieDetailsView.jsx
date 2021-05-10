@@ -43,6 +43,8 @@ class MovieDetailsView extends React.Component {
 
   render() {
     const { movie, movieId } = this.state;
+    const { location } = this.props;
+
     return (
       <>
         <button
@@ -62,13 +64,21 @@ class MovieDetailsView extends React.Component {
                 Additional information
               </p>
               <Link
-                to={`${paths.movieDetails(movieId)}/cast`}
+                to={{
+                  pathname: `${paths.movieDetails(movieId)}/cast`,
+                  state: location.state &&
+                    location.state.from && { from: location.state.from },
+                }}
                 className={styles.link}
               >
                 Cast
               </Link>
               <Link
-                to={`${paths.movieDetails(movieId)}/reviews`}
+                to={{
+                  pathname: `${paths.movieDetails(movieId)}/reviews`,
+                  state: location.state &&
+                    location.state.from && { from: location.state.from },
+                }}
                 className={styles.link}
               >
                 Reviews
