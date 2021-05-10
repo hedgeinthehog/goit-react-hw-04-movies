@@ -7,7 +7,6 @@ const MovieDetailsView = lazy(() => import('../views/MovieDetailsView'));
 export const paths = {
   home: '/',
   movies: '/movies',
-  movieDetails: '/movies/:movieId',
   movieDetails: id => `/movies/${id}`,
 };
 
