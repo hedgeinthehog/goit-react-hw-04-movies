@@ -3,12 +3,13 @@ import { Route, Link } from 'react-router-dom';
 import MovieDetails from '../../components/MovieDetails';
 import MovieReviews from '../../components/MovieReviews';
 import MovieCast from '../../components/MovieCast';
+import Loader from '../../components/Spinner';
 import movieApi from '../../services/movies-api';
 import { paths } from '../../router/routes';
 import styles from './MovieDetailsView.module.css';
 
 class MovieDetailsView extends React.Component {
-  state = { movieId: '', movie: null };
+  state = { movieId: '', movie: null, isLoading: false };
 
   componentDidMount() {
     const { match } = this.props;
@@ -21,15 +22,25 @@ class MovieDetailsView extends React.Component {
     const { movieId: id } = this.state;
 
     if (id !== prevState.movieId) {
+      this.toggleLoading();
+
       try {
         const { data } = await movieApi.fetchMovieById(id);
 
         this.setState({ movie: data });
       } catch (error) {
         alert("Couldn't get movie details, plase try again");
+      } finally {
+        this.toggleLoading();
       }
     }
   }
+
+  toggleLoading = () => {
+    this.setState(prevState => ({
+      isLoading: !prevState.isLoading,
+    }));
+  };
 
   handleGoBack = () => {
     const { location, history } = this.props;
@@ -42,7 +53,7 @@ class MovieDetailsView extends React.Component {
   };
 
   render() {
-    const { movie, movieId } = this.state;
+    const { movie, movieId, isLoading } = this.state;
     const { location } = this.props;
 
     return (
@@ -56,6 +67,7 @@ class MovieDetailsView extends React.Component {
         </button>
         {movie && (
           <>
+            {isLoading && <Loader />}
             <div>
               <MovieDetails movie={movie} />
             </div>

@@ -35,5 +35,6 @@
 @media screen and (min-width: 428px) {
   .movieLink {
     width: 420px;
+    margin: 0 auto;
   }
 }

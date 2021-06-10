@@ -2,9 +2,7 @@ import { lazy } from 'react';
 
 const Homepage = lazy(() => import('../views/HomeView'));
 const MoviesView = lazy(() => import('../views/MoviesView'));
-const MovieDetailsView = lazy(() =>
-  import('../views/MovieDetailsView/MovieDetailsView'),
-);
+const MovieDetailsView = lazy(() => import('../views/MovieDetailsView'));
 
 export const paths = {
   home: '/',

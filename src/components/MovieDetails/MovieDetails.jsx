@@ -20,7 +20,7 @@ const MovieDetails = ({ movie }) => {
   return (
     <div className={styles.detailsWrapper}>
       <div className={styles.moviePoster}>
-        <img src={posterPath} alt={title} />
+        <img src={posterPath} alt={title} className={styles.poster} />
       </div>
       <div className={styles.details}>
         <h3 className={styles.title}>

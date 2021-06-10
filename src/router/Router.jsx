@@ -1,9 +1,10 @@
 import { Suspense } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import Loader from '../components/Spinner';
 import routes from './routes';
 
 const Router = () => (
-  <Suspense fallback={<h1>Loading...</h1>}>
+  <Suspense fallback={<Loader />}>
     <Switch>
       {routes.map(route => (
         <Route

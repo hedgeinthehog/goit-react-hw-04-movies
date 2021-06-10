@@ -33,9 +33,9 @@ class Searchbar extends React.Component {
           onChange={this.handleChange}
           className={styles.searchInput}
         />
-        <button type="submit" className={styles.btn}>
+        {/* <button type="submit" className={styles.btn}>
           &#10148;
-        </button>
+        </button> */}
       </form>
     );
   }
