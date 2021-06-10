@@ -17,16 +17,17 @@ class MovieCast extends React.Component {
 
       this.setState({ cast });
     } catch (error) {
-      alert("Couldn't get cast");
+      console.log(error.message);
     }
   }
 
   render() {
     const { cast } = this.state;
+    const isCastAvailable = cast ? cast.length : null;
 
     return (
       <div>
-        {cast && (
+        {cast && isCastAvailable ? (
           <ul className={styles.castList}>
             {cast.map(({ profile_path, name, character, id }) => {
               return (
@@ -48,6 +49,8 @@ class MovieCast extends React.Component {
               );
             })}
           </ul>
+        ) : (
+          <p>No cast available</p>
         )}
       </div>
     );
