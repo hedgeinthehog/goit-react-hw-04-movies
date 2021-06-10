@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
-import MovieDetails from '../components/MovieDetails';
-import MovieReviews from '../components/MovieReviews';
-import MovieCast from '../components/MovieCast';
-import movieApi from '../services/movies-api';
-import { paths } from '../router/routes';
-import styles from '../styles/MovieDetailsView.module.css';
+import MovieDetails from '../../components/MovieDetails';
+import MovieReviews from '../../components/MovieReviews';
+import MovieCast from '../../components/MovieCast';
+import movieApi from '../../services/movies-api';
+import { paths } from '../../router/routes';
+import styles from './MovieDetailsView.module.css';
 
 class MovieDetailsView extends React.Component {
   state = { movieId: '', movie: null };
@@ -60,9 +60,9 @@ class MovieDetailsView extends React.Component {
               <MovieDetails movie={movie} />
             </div>
             <div className={styles.additionalInfoMenu}>
-              <p className={styles.additionalInfoMenuTitle}>
+              {/* <p className={styles.additionalInfoMenuTitle}>
                 Additional information
-              </p>
+              </p> */}
               <Link
                 to={{
                   pathname: `${paths.movieDetails(movieId)}/cast`,

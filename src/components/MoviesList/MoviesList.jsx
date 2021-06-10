@@ -7,13 +7,13 @@ const MoviesList = ({ movies, location }) => {
   return (
     <ul className={styles.moviesList}>
       {movies.map(movie => (
-        <li key={movie.id}>
+        <li key={movie.id} className={styles.movie}>
           <Link
             to={{
               pathname: paths.movieDetails(movie.id),
               state: { from: location },
             }}
-            className={styles.link}
+            className={styles.movieLink}
           >
             {movie.title}
           </Link>

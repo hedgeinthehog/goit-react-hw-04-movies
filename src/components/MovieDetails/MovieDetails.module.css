@@ -1,12 +1,20 @@
-.detailsWrapper {
-  display: flex;
+.moviePoster {
+  width: 220px;
+  margin: 0 auto;
 }
 
-.moviePoster {
-  margin-right: 10px;
+@media screen and (min-width: 600px) {
+  .detailsWrapper {
+    display: flex;
+  }
+
+  .moviePoster {
+    margin-right: 10px;
+  }
 }
 
 .title {
+  margin-top: 0.1em;
   font-size: 24px;
 }
 

@@ -31,8 +31,11 @@ class Searchbar extends React.Component {
           autoFocus
           placeholder="Search movies"
           onChange={this.handleChange}
+          className={styles.searchInput}
         />
-        <button type="submit">Search</button>
+        <button type="submit" className={styles.btn}>
+          &#10148;
+        </button>
       </form>
     );
   }

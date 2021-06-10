@@ -1,6 +1,7 @@
 import React from 'react';
 import movieApi from '../../services/movies-api';
 import getImgPath from '../../helpers/getImgPath';
+import styles from './MovieCast.module.css';
 import PropTypes from 'prop-types';
 
 class MovieCast extends React.Component {
@@ -26,15 +27,23 @@ class MovieCast extends React.Component {
     return (
       <div>
         {cast && (
-          <ul>
+          <ul className={styles.castList}>
             {cast.map(({ profile_path, name, character, id }) => {
               return (
-                <li key={id}>
+                <li key={id} className={styles.castItem}>
                   {profile_path && (
-                    <img src={getImgPath(profile_path)} alt={name} />
+                    <div className={styles.thumb}>
+                      <img
+                        src={getImgPath(profile_path)}
+                        alt={name}
+                        className={styles.img}
+                      />
+                    </div>
                   )}
-                  <p>{name}</p>
-                  <p>Character: {character}</p>
+                  <div className={styles.name}>
+                    <p>{name}</p>
+                    <p>Character: {character}</p>
+                  </div>
                 </li>
               );
             })}

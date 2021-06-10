@@ -1,5 +1,5 @@
 .additionalInfoMenu {
-  padding: 20px 0;
+  padding: 20px;
   margin: 10px 0;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.65);
 }
@@ -21,7 +21,13 @@
 }
 
 .backBtn {
-  margin-top: 10px;
+  margin: 15px 0 10px;
+  border: 1px solid #a3a1a1;
   border-radius: 5px;
-  border: 1px solid rgb(128, 127, 127);
+  cursor: pointer;
+}
+
+.backBtn:hover,
+.backBtn:focus {
+  box-shadow: 0px 2px 4px 0px rgb(0 0 0 / 65%);
 }

@@ -22,7 +22,7 @@ const MovieDetails = ({ movie }) => {
       <div className={styles.moviePoster}>
         <img src={posterPath} alt={title} />
       </div>
-      <div>
+      <div className={styles.details}>
         <h3 className={styles.title}>
           {title} ({releaseYear})
         </h3>
