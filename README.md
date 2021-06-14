@@ -1,3 +1,5 @@
+A SPA for exploring movies - view trending movies, search movies by query.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
